@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "esp32_c5") (type "KiCad") (uri "C:/Users/DELL/Desktop/Ki_Cad_libraries/esp32_c5.pretty") (options "") (descr ""))
+)
