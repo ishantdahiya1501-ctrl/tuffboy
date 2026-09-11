@@ -1,0 +1,124 @@
+(footprint "battery"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -0.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "64e441b8-eafd-4292-82c8-62fffcc7cdf2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "battery"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "fc62e15c-5ba6-4351-853b-d3f6f81059de")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "223add7a-4cda-46bc-be7e-5a071eecf84d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "92de60b6-c849-41df-9b9e-5c509db5d401")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start 5 -5)
+		(end 5 -51)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "1051a453-df93-45a8-bc93-c26523a1283b")
+	)
+	(fp_line
+		(start 5 -5)
+		(end 27.5 -5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "47c81a7b-4244-471a-a698-68c16a1dbf36")
+	)
+	(fp_line
+		(start 27.5 -51)
+		(end 5 -51)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "83091e1e-b74d-4653-ab3a-f74ceb96d3c9")
+	)
+	(fp_line
+		(start 27.5 -5)
+		(end 27.5 -51)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "d7481aae-5bf4-44b2-80f5-73c470c4a521")
+	)
+	(fp_text user "BATTERY"
+		(at 13 -34 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "99c5d276-bf33-4410-9a01-bedac7c561b5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "9299d4b4-9000-48ce-97bd-a11b01c18081")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(embedded_fonts no)
+)

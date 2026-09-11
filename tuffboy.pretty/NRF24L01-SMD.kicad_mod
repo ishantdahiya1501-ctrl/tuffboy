@@ -1,0 +1,173 @@
+(footprint "NRF24L01-SMD"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 1.1 0)
+		(layer "F.SilkS")
+		(uuid "8871c7aa-ec11-416b-bd96-5202d97a8cde")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "NRF24L01-SMD"
+		(at 0 -4.8 0)
+		(layer "F.Fab")
+		(uuid "cd48d252-a043-4563-be8d-031cd9dedc21")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f2fdf7f5-93bc-4ad8-a908-a4e35cab0311")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ba0e3b68-3b70-4adf-9e46-837cb6928249")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -6 -9.3)
+		(end 6 -9.3)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "f7f3d9f2-e2d7-46d1-a979-bedf18e09fcd")
+	)
+	(fp_line
+		(start -6 -2.8)
+		(end 6 -2.8)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "5eace5ac-34e0-4030-b711-04f298c56c64")
+	)
+	(fp_line
+		(start -6 8.7)
+		(end -6 -9.3)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "ec122287-35f5-45fb-a4c4-ef01099b03c0")
+	)
+	(fp_line
+		(start 6 -9.3)
+		(end 6 8.7)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "33f98d85-e9c4-43c5-9035-149950d4c35f")
+	)
+	(fp_line
+		(start 6 8.7)
+		(end -6 8.7)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "3f3635c1-991f-49d4-8d7e-279d90b78dba")
+	)
+	(pad "1" smd rect
+		(at -4.4 8.7)
+		(size 1 2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "1f4ac060-96d7-4400-97f6-a73978ddbed8")
+	)
+	(pad "2" smd rect
+		(at -3.13 8.7)
+		(size 1 2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "1c7ed27b-cbe4-4dd2-9bff-851f2b9302df")
+	)
+	(pad "3" smd rect
+		(at -1.86 8.7)
+		(size 1 2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "fe1bfafe-7e4a-4090-8e86-77d0aa799c23")
+	)
+	(pad "4" smd rect
+		(at -0.59 8.7)
+		(size 1 2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "26d791c8-d714-4fe5-a43a-5e3e94dac1fe")
+	)
+	(pad "5" smd rect
+		(at 0.68 8.7)
+		(size 1 2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "4722723f-504d-4af4-bb10-8e68a083e5a8")
+	)
+	(pad "6" smd rect
+		(at 1.95 8.7)
+		(size 1 2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "1b9607d1-2378-4aad-bf15-6a66847fa4bc")
+	)
+	(pad "7" smd rect
+		(at 3.22 8.7)
+		(size 1 2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "6a1dac1d-cf08-44ad-8d7a-d4649d26bfaf")
+	)
+	(pad "8" smd rect
+		(at 4.49 8.7)
+		(size 1 2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "e51ff591-6aff-44d1-9e41-b9f57de3d0ab")
+	)
+	(embedded_fonts no)
+	(model "${MYSLOCAL}/mysensors.3dshapes/mysensors_radios.3dshapes/nrf24smd.wrl"
+		(offset
+			(xyz -146.3674978 73.65999889 0.7619999886)
+		)
+		(scale
+			(xyz 0.395 0.395 0.395)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+	(model "Housings_DFN_QFN.3dshapes/QFN-20-1EP_5x5mm_Pitch0.65mm.wrl"
+		(offset
+			(xyz 0.4190999937 -2.768599958 1.574799976)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
