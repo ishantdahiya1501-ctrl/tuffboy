@@ -60,23 +60,53 @@ the flipper has a bunch of stuff mine doesn't (yet). here's the honest status on
 
 | feature | flipper | tuffboy |
 |---|---|---|
-| sub-ghz radio | yes | yes already on board (cc1101) |
-| 2.4GHz radio | yes | yes already on board (nrf24l01+) |
-| wifi | no | yes 2.4 + **5GHz** — the thing flipper can't do |
-| stm32 / co-processor expansion | no | yes 4-pin connector already on board |
-| IR blaster | yes | planned, needs an IR led + receiver on the next rev |
-| RFID 125kHz | yes | planned, needs extra hardware |
-| NFC 13.56MHz | yes | planned, needs extra hardware (pn532 or similar) |
-| iButton | yes | planned, 1-wire on a gpio, firmware work |
-| USB HID / badUSB | yes | planned, the c5 has native usb, so this is firmware-only |
-| U2F security key | yes | planned, same, firmware work |
-| open expansion for any 3.3v board | no | yes |
+| sub-ghz radio | ✅ | ✅ already on board (cc1101) |
+| 2.4GHz radio | ✅ | ✅ already on board (nrf24l01+) |
+| wifi | ❌ | ✅ 2.4 + **5GHz** — the thing flipper can't do |
+| stm32 / co-processor expansion | ❌ | ✅ 4-pin connector already on board |
+| IR blaster | ✅ | 🔜 needs an IR led + receiver on the next rev |
+| RFID 125kHz | ✅ | 🔜 needs extra hardware |
+| NFC 13.56MHz | ✅ | 🔜 needs extra hardware (pn532 or similar) |
+| iButton | ✅ | 🔜 1-wire on a gpio, firmware work |
+| USB HID / badUSB | ✅ | 🔜 the c5 has native usb, so this is firmware-only |
+| U2F security key | ✅ | 🔜 same, firmware work |
+| open expansion for any 3.3v board | ❌ | ✅ |
 
 so the plan: everything the flipper does gets added over a few board revs + firmware, and the flipper literally can't do wifi (or take a second mcu) — that's where tuffboy stays ahead.
 
 ## software status
 
-There is no custom software **yet** for now but i have modified it to work with tuff boy.
+The project currently has two firmware paths. You can either use the included TuffBoy starter firmware or clone Bruce and continue from that firmware project.
+
+### Use the TuffBoy firmware
+
+The native starter firmware is located at [`firmware/TuffBoy/TuffBoy.ino`](firmware/TuffBoy/TuffBoy.ino). It is written for the ESP32-C5 Arduino framework and currently provides:
+
+- boot diagnostics and chip information
+- configurable LED status indicator
+- expansion UART test messages
+- I2C bus scanning
+- Wi-Fi station mode and nearby-network scanning
+- a serial command interface (`help`, `status`, `wifi`, `i2c`, `led`, and more)
+
+The LED, I2C, and expansion UART pins are defined as constants at the top of the sketch because the final pin mapping may change between board revisions. The sketch uses the ESP32 Arduino framework APIs and the built-in `Wire` and `WiFi` libraries.
+
+### Clone Bruce firmware
+
+The [`firmware/Bruce Firmware Cloner.py`](firmware/Bruce%20Firmware%20Cloner.py) script downloads the [Bruce firmware](https://github.com/pr3y/Bruce) into a `Bruce/` directory. It requires Python 3.7 or newer. Git is used by default, or the `--zip` option can download an archive without Git.
+
+```bash
+# Clone Bruce into the current directory
+python3 "firmware/Bruce Firmware Cloner.py"
+
+# Shallow clone into a chosen directory
+python3 "firmware/Bruce Firmware Cloner.py" -d ~/projects --depth 1
+
+# Download Bruce as a ZIP archive instead of using Git
+python3 "firmware/Bruce Firmware Cloner.py" -d ~/projects --zip
+```
+
+Useful options are `--branch` for a specific branch and `--deps` to install the Python build dependencies used by Bruce. After cloning, follow Bruce's own board and build instructions in its repository.
 
 ## current progress
 
@@ -91,32 +121,15 @@ There is no custom software **yet** for now but i have modified it to work with 
 - [x] stm32 expansion connector on the board (J1 = TX, RX, 3V3, GND)
 - [x] firmware (after parts arrive)
 
-## bill of materials
-
-| Name | Quantity | Description | Buy Link | Price |
-|---|---|---|---|---|
-| ESP32-C5-DevKitC-1 | 1 | ESP32-C5 WiFi 6/6E Mini Module (2.4GHz + 5GHz) | [Link](https://robu.in/product/waveshare-esp32-c5-dual-band-wi-fi-6-development-board/) | 1339 rs |
-| NRF24L01_Breakout | 1 | nRF24L01+ 2.4GHz RF Transceiver Module | [Link](https://quartzcomponents.com/collections/all/products/rf-module-2-4ghz-nrf24l01-smd) | 113 rs |
-| CC1101-868MHz-Module | 1 | CC1101 868/915 MHz Sub-GHz RF Module | [Link](https://quartzcomponents.com/products/cc1101-868mhz-wireless-transceiver-module) | 247 rs |
-| TFT_320x240 | 1 | 2.4" TFT LCD Display 320x240 Touch Screen | [Link](https://robu.in/product/2-8-inch-spi-touch-screen-module-tft-interface-240320/) | 959 rs |
-| TP4056 | 1 | TP4056 Lithium Battery Charging Module | [Link](https://robocraze.com/products/tp4056-battery-charger-c-type-module-with-protection-1) | 16 rs |
-| battery | 4 | 18650 Li-Ion Battery (3.7V) | [Link](https://quartzcomponents.com/collections/all/products/3-7v-500mah-li-po-rechargeable-battery-for-boat-wireless-bluetooth) | 122 rs each |
-| uart Connector | 1 | JST EH Series 4-Pin Connector (Expansion Port) | [Link](https://quartzcomponents.com/collections/all/products/4-pin-jst-xh-male-connector-5-24mm-pitch) | 2 rs |
-| zero pcb | 5 | making the fist pcb | [Link](https://quartzcomponents.com/products/perf-board-dotted-board-general-purpose-pcb-15x10cm) | 29 rs each |
-| soldering kit | 1 | making my pcb | [Link](https://www.amazon.in/Soldering-180-500%C2%B0C-Adjustable-Desoldering-Tweezers/dp/B0H2DF7V5R/) | 1399 rs |
-| jumper cables | 2 | for wiring | [Link](https://quartzcomponents.com/products/jumper-wires-combo-pack-male-to-male-male-to-female-female-to-female-set-of-120) | 159 rs each |
-| soldering stand | 1 | for soldering | [Link](https://www.amazon.in/Catchex-Helping-Magnifier-Soldering-Dual-Mode/dp/B08MQX9L5N/) | 694 rs |
-| soldering wick | 2 | for soldering | [Link](https://quartzcomponents.com/products/desoldering-braid-solder-remover-wick) | 18 rs each |
-| jst female | 2 | needed | [Link](https://quartzcomponents.com/collections/all/products/4-pin-jst-sm-connector-with-wire-5-24mm-pitch) | 13 rs each |
-
-**Total: 5782 rs (approx. $60 USD)**
-
 ## files
-tuffboy/ the kicad 10 project (sch + pcb)
-tuffboy.pretty/ third-party libs (xiaosymbols, ssd1306 footprints etc)
-CAD/ step models (esp32-c5, nrf24l01, cc1101, oleds, 603040 battery)
-images/ pcb renders + board pics (see full list in Images section above)
-firmware/ Modefied bruce.
+
+```
+tuffboy/          the kicad 10 project (sch + pcb)
+tuffboy.pretty/   third-party libs (xiaosymbols, ssd1306 footprints etc)
+CAD/              step models (esp32-c5, nrf24l01, cc1101, oleds, 603040 battery)
+images/           pcb renders + board pics (see full list in [Images](#images) section above)
+firmware/         TuffBoy starter firmware and Bruce cloning script.
+```
 
 open `tuffboy/tuffboy.kicad_pro` in kicad 10 and you're good.
 
