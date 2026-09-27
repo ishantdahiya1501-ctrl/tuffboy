@@ -1,4 +1,5 @@
 # TuffBoy
+**NOTE for admin** : I have been working on this project form then 70+ hrs i have made so much progress and learned so many things you asked me add the things like bom and how will the make this those things are now added also your review stats that "Some of your journals although they have what you've done, kind of doesn't justify why you got the hours and has a brief explanation" I understand that you need proper journals and all i have tried to make the journals bigger and they describe what i did but thee main problem i myself does not remember what i did like 2 or 3 weeks ago that's why i can't full full fill your journal criteria also you guys states that the hours does not justify tbh i am very very new in this tech field i learned kicad from ground zero that's why it takes time to make the pcb to find the parts for the pcb design i am not a pro at the end so if you check any lapse with the devlog you can see that was working only not afk but my speed has now increased also some of the journals were i shifted to linux the lapse are not there becuase i thought that lookout only works in windows so pls keep that in mind. I really hope that this time my project gets selected.  
 
 A handheld multi-tool inspired by the Flipper Zero, but built around the ESP32-C5 Devkit C with **Dual Band** (2.4GHz + 5Ghz), and a big idea: an expansion port that lets you bolt on a whole second microcontroller (Black Pill, or basically any 3.3V dev board).
 
@@ -7,6 +8,10 @@ This is the part that makes TuffBoy ~200× more flexible than a Flipper — inst
 ![Status](https://img.shields.io/badge/status-PCB%20completed-brightgreen) ![Made with](https://img.shields.io/badge/made%20with-KiCad%2010-blue) ![Hack Club](https://img.shields.io/badge/made%20with%20help%20from-Hack%20Club-EC5C28)
 
 **TuffBoy so far:**
+
+**Circuit diagram:**
+
+![diagram](images/digram.png)
 
 **3d model of the device**
 
