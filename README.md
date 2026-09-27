@@ -49,6 +49,25 @@ So the Flipper is cool but it's not that good in base form and expensive, and th
 
 It's being made with the help of [Hack Club](https://hackclub.com/).
 
+## How to make one:
+
+To make one just see the circuit diagram images and copy it then add the script which is in the firmware folder in the esp32 c5 that's all as simple as you see.
+How will i make it i preffer to make this on a zero pcb first that will hlep me fix any problems with the pcb. Also if you want to know the wiring here its is:
+
+2.8 inch tft:
+TFT pin	ESP32-C5	Function
+VCC	3.3V	Power
+GND	GND	Ground
+SCK/CLK	GPIO	SPI clock
+MOSI/SDI	GPIO	SPI data
+MISO/SDO	GPIO	SPI data back
+CS	GPIO	Display chip select
+DC/RS	GPIO	Display command/data
+RST	GPIO	Display reset
+LED/BL	3.3V or GPIO	Backlight
+T_CS	GPIO	Touch chip select
+T_IRQ	GPIO	Touch interrupt, optional
+
 ## the uart extension (the big idea)
 
 Every flipper-clone has the same problem: you get one MCU and that's it. The TuffBoy has an **expansion port for a second microcontroller**:
