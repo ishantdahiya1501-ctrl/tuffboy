@@ -11,7 +11,7 @@ This is the part that makes TuffBoy ~200× more flexible than a Flipper — inst
 
 **Circuit diagram:**
 
-![diagram](images/digram.png)
+![diagram](images/diagram.png)
 
 **3d model of the device**
 
