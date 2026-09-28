@@ -54,19 +54,136 @@ It's being made with the help of [Hack Club](https://hackclub.com/).
 To make one just see the circuit diagram images and copy it then add the script which is in the firmware folder in the esp32 c5 that's all as simple as you see.
 How will i make it i preffer to make this on a zero pcb first that will hlep me fix any problems with the pcb. Also if you want to know the wiring here its is:
 
-2.8 inch tft:
-TFT pin	ESP32-C5	Function
-VCC	3.3V	Power
-GND	GND	Ground
-SCK/CLK	GPIO	SPI clock
-MOSI/SDI	GPIO	SPI data
-MISO/SDO	GPIO	SPI data back
-CS	GPIO	Display chip select
-DC/RS	GPIO	Display command/data
-RST	GPIO	Display reset
-LED/BL	3.3V or GPIO	Backlight
-T_CS	GPIO	Touch chip select
-T_IRQ	GPIO	Touch interrupt, optional
+## Wiring
+
+### Main Controller
+
+The TuffBoy is built around an **ESP32-C5 DevKit-C**. The TFT, CC1101, and nRF24L01+ modules communicate with the ESP32-C5 using SPI, while the 4-pin JST-SH connector provides a UART expansion interface.
+
+### Pin Assignment
+
+| ESP32-C5 GPIO | Connection | Function |
+|---|---|---|
+| GPIO 6 | SPI SCK | Shared SPI clock |
+| GPIO 7 | SPI MOSI | Shared SPI data output |
+| GPIO 2 | SPI MISO | Shared SPI data input |
+| GPIO 10 | TFT CS | TFT chip select |
+| GPIO 3 | TFT DC | TFT data/command |
+| GPIO 4 | TFT RST | TFT reset |
+| GPIO 5 | TFT BL | TFT backlight control |
+| GPIO 8 | Touch CS | Touch controller chip select |
+| GPIO 9 | Touch IRQ | Touch interrupt |
+| GPIO 0 | CC1101 CS | CC1101 chip select |
+| GPIO 1 | CC1101 GDO0 | CC1101 interrupt/status |
+| GPIO 18 | nRF24 CSN | nRF24 chip select |
+| GPIO 19 | nRF24 CE | nRF24 chip enable |
+| GPIO 20 | nRF24 IRQ | nRF24 interrupt |
+| GPIO 21 | UART TX | JST-SH TX |
+| GPIO 22 | UART RX | JST-SH RX |
+
+> **Note:** GPIO numbers are the proposed firmware/pinout assignment for TuffBoy. Verify them against the exact ESP32-C5 DevKit-C board and your final PCB before manufacturing.
+
+---
+
+## 2.8" SPI TFT + Touch
+
+The TFT uses the ESP32-C5's SPI bus.
+
+| TFT Pin | ESP32-C5 |
+|---|---|
+| VCC | 3.3V |
+| GND | GND |
+| SCK / CLK | GPIO 6 |
+| MOSI / SDI | GPIO 7 |
+| MISO / SDO | GPIO 2 |
+| CS | GPIO 10 |
+| DC / RS | GPIO 3 |
+| RST | GPIO 4 |
+| BL / LED | GPIO 5 |
+
+### Touch Controller
+
+For a typical XPT2046-style SPI touch controller:
+
+| Touch Pin | ESP32-C5 |
+|---|---|
+| VCC | 3.3V |
+| GND | GND |
+| T_CLK | GPIO 6 |
+| T_DIN | GPIO 7 |
+| T_DO | GPIO 2 |
+| T_CS | GPIO 8 |
+| T_IRQ | GPIO 9 |
+
+The TFT and touch controller share the SPI clock, MOSI and MISO lines. Separate chip-select lines allow the ESP32-C5 to communicate with each device independently.
+
+---
+
+## CC1101
+
+The CC1101 uses the same SPI bus as the TFT and touch controller.
+
+| CC1101 Pin | ESP32-C5 |
+|---|---|
+| VCC | 3.3V |
+| GND | GND |
+| SCK | GPIO 6 |
+| MOSI / SI | GPIO 7 |
+| MISO / SO | GPIO 2 |
+| CSN / CS | GPIO 0 |
+| GDO0 | GPIO 1 |
+
+The CC1101 SPI bus is shared with the other SPI peripherals. Its dedicated CS pin is used to select the CC1101.
+
+**Important:** The CC1101 module must be operated at the appropriate supply voltage for the specific module. Do not assume a 5V logic interface is safe.
+
+---
+
+## nRF24L01+
+
+The nRF24L01+ also shares the main SPI bus.
+
+| nRF24L01+ Pin | ESP32-C5 |
+|---|---|
+| VCC | 3.3V |
+| GND | GND |
+| SCK | GPIO 6 |
+| MOSI | GPIO 7 |
+| MISO | GPIO 2 |
+| CSN | GPIO 18 |
+| CE | GPIO 19 |
+| IRQ | GPIO 20 |
+
+The nRF24L01+ uses the shared SPI bus while **CSN** and **CE** remain dedicated to the module.
+
+> **Power note:** The nRF24L01+ can be sensitive to supply noise. Place a decoupling capacitor close to the module's VCC and GND pins.
+
+---
+
+## 4-Pin JST-SH Expansion Connector
+
+The 4-pin JST-SH connector provides power and a UART interface for an external 3.3V-compatible microcontroller or expansion board.
+
+| JST-SH Pin | ESP32-C5 | Function |
+|---|---|---|
+| Pin 1 | GND | Ground |
+| Pin 2 | 3.3V | VCC |
+| Pin 3 | GPIO 21 | TX |
+| Pin 4 | GPIO 22 | RX |
+
+### Connector Layout
+
+```text
+JST-SH 4-Pin
+
+┌───────────────┐
+│ 1 │ 2 │ 3 │ 4 │
+└───────────────┘
+  │   │   │   │
+  │   │   │   └── RX
+  │   │   └────── TX
+  │   └────────── 3.3V
+  └────────────── GND
 
 ## the uart extension (the big idea)
 
