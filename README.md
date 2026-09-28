@@ -331,6 +331,7 @@ Open `tuffboy/tuffboy.kicad_pro` in kicad 10 and you're good.
 **Approximately: $60.27 USD**
 
 > Prices are approximate and may change depending on availability, shipping, taxes, and seller pricing.
+> Buy links are in BOM.csv
 
 ## credits
 
