@@ -174,7 +174,7 @@ The 4-pin JST-SH connector provides power and a UART interface for an external 3
 ### Connector Layout
 
 JST-SH 4-Pin
-
+```text
 ┌───────────────┐
 │ 1 │ 2 │ 3 │ 4 │
 └───────────────┘
@@ -183,6 +183,8 @@ JST-SH 4-Pin
   │   │   └────── TX
   │   └────────── 3.3V
   └────────────── GND
+
+```
 
 ## the uart extension (the big idea)
 
