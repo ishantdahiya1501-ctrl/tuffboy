@@ -304,6 +304,34 @@ tuffboy(without case)-reduced.stl
 
 Open `tuffboy/tuffboy.kicad_pro` in kicad 10 and you're good.
 
+## BOM
+
+## Bill of Materials
+
+| Component | Qty | Description | Unit Price | Total |
+|---|---:|---|---:|---:|
+| ESP32-C5-DevKitC-1 | 1 | ESP32-C5 Wi-Fi 6/6E development board | ₹1,339 | ₹1,339 |
+| NRF24L01 Breakout | 1 | nRF24L01+ 2.4GHz RF transceiver module | ₹113 | ₹113 |
+| CC1101-868MHz Module | 1 | CC1101 868/915MHz Sub-GHz RF module | ₹247 | ₹247 |
+| TFT 320x240 | 1 | 2.8" TFT LCD 320×240 touch display | ₹959 | ₹959 |
+| TP4056 | 1 | TP4056 Type-C Li-ion battery charging module | ₹16 | ₹16 |
+| 18650 Li-Ion Battery | 4 | 3.7V Li-Ion battery | ₹122 | ₹488 |
+| UART Connector | 1 | 4-pin JST connector for expansion/UART | ₹2 | ₹2 |
+| Zero PCB | 5 | Perfboard used for initial PCB prototyping | ₹29 | ₹145 |
+| Soldering Kit | 1 | Adjustable soldering station/kit | ₹1,399 | ₹1,399 |
+| Jumper Cables | 2 | Jumper wire sets for prototyping and wiring | ₹159 | ₹318 |
+| Soldering Stand | 1 | Helping-hand soldering stand with magnifier | ₹694 | ₹694 |
+| Soldering Wick | 2 | Desoldering braid | ₹18 | ₹36 |
+| JST Female Connector | 2 | 4-pin JST connector with wires | ₹13 | ₹26 |
+| **Total** | | | | **₹5,782** |
+
+### Estimated Project Cost
+
+**Total: ₹5,782 INR**  
+**Approximately: $60.27 USD**
+
+> Prices are approximate and may change depending on availability, shipping, taxes, and seller pricing.
+
 ## credits
 
 * completely made by ishant dahiya
